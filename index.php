@@ -41,18 +41,81 @@ if ($pg) {
 
             break;
 
+        case 'produtos-editar':
+
+
+
+            include_once 'painel/paginas/includes/header.php';
+            include_once 'painel/paginas/includes/menus.php';
+
+            if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
+                //FUNÇÃO PARA ATUALIZAÇÃO DO USUÁRIO
+            } else {
+                //mostrar os dados do produto
+                $idProdutoEditar = isset($_GET['id']);
+
+
+
+                if ($idProdutoEditar) {
+                    $resultDados = new conecxao ();
+                    $dados = $resultDados->selecionaDados('SELECT * FROM produtos WHERE id = ' . $idProdutoEditar);
+                    include_once 'painel/paginas/produtos-editar.php';
+                }
+            }
+
+            include_once 'painel/paginas/includes/footer.php';
+
+            break;
+
         case 'servicos':
+
+            $resultDados = new conecxao ();
+            $dados = $resultDados->selecionaDados('SELECT * FROM servicos');
+
             include_once 'painel/paginas/includes/header.php';
             include_once 'painel/paginas/includes/menus.php';
             include_once 'painel/paginas/servicos.php';
             include_once 'painel/paginas/includes/footer.php';
             break;
 
+        case 'servicos-visualizar':
+
+            $id = $_GET ['id'];
+            $resultDados = new conecxao ();
+            $dados = $resultDados->selecionaDados('SELECT * FROM servicos WHERE id = ' . $id);
+
+
+            include_once 'painel/paginas/includes/header.php';
+            include_once 'painel/paginas/includes/menus.php';
+            include_once 'painel/paginas/servicos-visualizar.php';
+            include_once 'painel/paginas/includes/footer.php';
+
+            break;
+
         case 'contato':
+
+            $resultDados = new conecxao ();
+            $dados = $resultDados->selecionaDados('SELECT * FROM contato');
+
+
             include_once 'painel/paginas/includes/header.php';
             include_once 'painel/paginas/includes/menus.php';
             include_once 'painel/paginas/contato.php';
             include_once 'painel/paginas/includes/footer.php';
+            break;
+
+        case 'contato-visualizar':
+
+            $id = $_GET ['id'];
+            $resultDados = new conecxao ();
+            $dados = $resultDados->selecionaDados('SELECT * FROM contato WHERE id = ' . $id);
+
+
+            include_once 'painel/paginas/includes/header.php';
+            include_once 'painel/paginas/includes/menus.php';
+            include_once 'painel/paginas/contato-visualizar.php';
+            include_once 'painel/paginas/includes/footer.php';
+
             break;
 
         case 'login':

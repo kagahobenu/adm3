@@ -11,24 +11,26 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Detalhes do produtos</li>
+                        <li class="breadcrumb-item active">Contato-Vizualizar</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+        </div>
     </div>
-    <!-- /.content-header -->
+
 
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-           <?php
-           foreach ($dados as $dado) {
-               echo $dado['nome']. '<br>';
-               echo $dado['tipo']. '<br>';
-               echo $dado['valor']. '<br>';
-           }
-           ?>
+            <?php
+            foreach ($dados as $dado) {
+                echo $dado['nome'] . '<br>';
+                echo $dado['email'] . '<br>';
+                echo $dado['mensagem'] . '<br>';
+            }
+            ?>
+            <hr>
+            <a href="?pg=contato" class="btn btn-success">Voltar a lista de E-mail</a>
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
