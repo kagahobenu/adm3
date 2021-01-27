@@ -1,4 +1,7 @@
-
+<?php
+$resultDados = new conecxao();
+$dados = $resultDados->selecionaDados('SELECT * FROM produtos');
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -27,11 +30,17 @@
                     <div class="row">
                         <div class="col-12">
 
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">DataTable with default features</h3>
-                                </div>
+                            <div class="card-header">
+                                <h3 class="card-title">
+                                    <a href="?pg=produtos-inserir" class="btn btn-success btn-lg">
+                                        <span class="fa fa-plus"></span> Novo produto
+                                    </a>
+                                </h3>
+                            </div>
+
+                           
                                 <!-- /.card-header -->
+
                                 <div class="card-body">
                                     <table id="tabela-produtos" class="table table-bordered table-striped table-hover">
                                         <thead>
@@ -56,7 +65,7 @@
                                                     <td><?php echo $dado['valor']; ?></td>
                                                     <td>
                                                         <a href="?pg=produtos-item&id=<?php echo $dado['id']; ?>" class="btn btn-outline-success"><span class="fa fa-eye"></span></a>
-                                                        <a href="?pg=produtos-editar&id=><?php echo $dado['id']; ?>" class="btn btn-outline-warning"><span class="fa fa-edit"></span></a>
+                                                        <a href="?pg=produtos-editar&id=<?php echo $dado['id']; ?>" class="btn btn-outline-warning"><span class="fa fa-edit"></span></a>
                                                         <a href="#" class="btn btn-outline-danger"><span class="fa fa-trash"></span></a>
                                                     </td>
                                                 </tr>

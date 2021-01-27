@@ -32,41 +32,47 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="quickForm">
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="nome">Produto</label>
-                                    <input type="text" name="nome" class="form-control" id="nome">
-                                </div>
-                                <div class="form-group">
-                                    <label for="tipo">Tipo Produto</label>
-                                    <input type="text" name="tipo" class="form-control" id="tipo">
-                                </div>
-                                <div class="form-group">
-                                   <label  for="valor"> Valor do Produto em R$</label>
-                                        <input type="text" name="valor" class="form-control" id="valor">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-dark">Atualizar</button>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <!--/.col (left) -->
-                <!-- right column -->
-                <div class="col-md-6">
+                        <form action="?pg=produtos-editar" method="POST">
+                            <?php foreach ($dados as $dado) { ?>
 
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="nome">Produto</label>
+                                        <input type="text" name="nome" value="<?php echo$dado ['nome']; ?>" class="form-control" id="nome">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tipo">Tipo Produto</label>
+                                        <input type="text" name="tipo" value="<?php echo$dado ['tipo']; ?>" class="form-control" id="tipo">
+                                    </div>
+                                    <div class="form-group">
+                                        <label  for="valor"> Valor do Produto em R$</label>
+                                        <input type="text" name="valor" value="<?php echo$dado ['valor']; ?>" class="form-control" id="valor">
+
+                                    </div>
+                                    <input type="hidden" value="<?php echo $dado ['id']; ?>" name="id">
+                                </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <a href="?pg=produtos" class="btn btn-dark"><span class="fa fa-back">Voltar</span></a>
+                            <button type="submit" class="btn btn-dark"><span class="fa fa-back">Atualizar</span></button>
+                        </div>
+
+                    <?php } ?>
+                    </form>
                 </div>
-                <!--/.col (right) -->
+                <!-- /.card -->
             </div>
-            <!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+            <!--/.col (left) -->
+            <!-- right column -->
+            <div class="col-md-6">
+
+            </div>
+            <!--/.col (right) -->
+        </div>
+        <!-- /.row -->
+</div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
