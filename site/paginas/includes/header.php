@@ -60,8 +60,8 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item active"><a class="nav-link" href="?pg=inicio-site">Inicio <span class="sr-only">(página atual)</span></a></li> 
                         <li class="nav-item active"><a class="nav-link" href="?pg=sobre">Sobre <span class="sr-only">(página atual)</span></a></li> 
-                        <li class="nav-item active"><a class="nav-link" href="?pg=servicos-site">Serviços <span class="sr-only">(página atual)</span></a></li> 
-                        <li class="nav-item active"><a class="nav-link" href="?pg=produtos-site">Produtos <span class="sr-only">(página atual)</span></a></li> 
+                        <li class="nav-item active"><a class="nav-link" href="?pg=servicos">Serviços <span class="sr-only">(página atual)</span></a></li> 
+                        <li class="nav-item active"><a class="nav-link" href="?pg=produtos">Produtos <span class="sr-only">(página atual)</span></a></li> 
                         <li class="nav-item active"><a class="nav-link" href="?pg=contato-site">Contato <span class="sr-only">(página atual)</span></a></li> 
 
                     </ul>

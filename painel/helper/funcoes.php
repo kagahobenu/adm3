@@ -6,7 +6,7 @@ function verificaLogin() {
 
     $usuario = 'Agreatbigworld';
     $senha = 'idontwannalovesomebodyelse';
-
+    
     //Verificar se as informações passados 
     //pelo usuário é igual a que estão no banco.
 

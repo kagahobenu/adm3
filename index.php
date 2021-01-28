@@ -6,7 +6,7 @@ include_once 'painel/helper/funcoes.php';
 $pg = isset($_GET['pg']);
 
 if ($pg) {
-    //existe
+//existe
     switch ($_GET['pg']) {
 
         case 'inicio':
@@ -49,7 +49,7 @@ if ($pg) {
             include_once 'painel/paginas/includes/menus.php';
 
             if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
-                //FUNÇÃO PARA ATUALIZAÇÃO DO USUÁRIO
+              //FUNÇÃO PARA ATUALIZAÇÃO DO USUÁRIO
                 //echo 'Editando produto';
                 //Pegando as variáveis via POST
                 $id = $_POST['id'];
@@ -57,7 +57,7 @@ if ($pg) {
                 $tipo = $_POST['tipo'];
                 $valor = $_POST['valor'];
 
-                //Tratando os dados enviados
+//Tratando os dados enviados
                 $parametros = array(
                     ':id' => $id,
                     ':nome' => $nome,
@@ -65,7 +65,7 @@ if ($pg) {
                     ':valor' => $valor
                 );
 
-                //Fazendo a atualização no banco
+//Fazendo a atualização no banco
                 $atualizarProduto = new conecxao();
 
                 $atualizarProduto->intervencaoNoBanco(''
@@ -77,7 +77,7 @@ if ($pg) {
 
                 header('Location: ?pg=produtos');
             } else {
-                //mostrar os dados do produto
+//mostrar os dados do produto
                 $idProdutoEditar = isset($_GET['id']);
 
                 if ($idProdutoEditar) {
@@ -126,15 +126,15 @@ if ($pg) {
             include_once 'painel/paginas/includes/menus.php';
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                //Função para atualização do Produto
-                //Pegando as variáveis via POST
+//Função para atualização do Produto
+//Pegando as variáveis via POST
 
                 $id = $_POST['id'];
                 $nome = $_POST['nome'];
                 $tipo = $_POST['tipo'];
                 $valor = $_POST['valor'];
 
-                //Tratando os dados enviados
+//Tratando os dados enviados
                 $parametros = array(
                     ':id' => $id,
                     ':nome' => $nome,
@@ -142,7 +142,7 @@ if ($pg) {
                     ':valor' => $valor
                 );
 
-                //Fazendo a atualização no banco
+//Fazendo a atualização no banco
                 $atualizarServico = new conecxao();
 
                 $atualizarServico->intervencaoNoBanco(''
@@ -154,7 +154,7 @@ if ($pg) {
 
                 include_once 'painel/paginas/servicos.php';
             } else {
-                //mostrar os dados do produto
+//mostrar os dados do produto
                 $idServicosEditar = isset($_GET['id']);
 
                 if ($idServicosEditar) {
@@ -178,12 +178,12 @@ if ($pg) {
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-                //Pegando as variáveis via POST
+//Pegando as variáveis via POST
                 $nome = $_POST['nome'];
                 $tipo = $_POST['tipo'];
                 $valor = $_POST['valor'];
 
-                //Tratar os dados enviados via POST
+//Tratar os dados enviados via POST
                 $parametros = array(''
                     . ':nome' => $nome,
                     ':tipo' => $tipo,
@@ -210,12 +210,12 @@ if ($pg) {
 
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-                //Pegando as variáveis via POST
+//Pegando as variáveis via POST
                 $nome = $_POST['nome'];
                 $tipo = $_POST['tipo'];
                 $valor = $_POST['valor'];
 
-                //Tratar os dados enviados via POST
+//Tratar os dados enviados via POST
                 $parametros = array(''
                     . ':nome' => $nome,
                     ':tipo' => $tipo,
@@ -262,12 +262,23 @@ if ($pg) {
 
             break;
 
+        case 'contato-excluir':
+
+            $parametros = array(
+                ':id' => $_GET['id'],
+            );
+            $resultDados = new Conecxao();
+            $resultDados->intervencaoNoBanco('DELETE FROM contato WHERE id = :id', $parametros);
+            header('Location: ?pg=contato');
+
+            break;
+
         case 'login':
             include_once 'painel/paginas/acesso/login.php';
             break;
 
         case 'dashboard':
-            //Página inicial do Painel Adm           
+//Página inicial do Painel Adm           
             if (verificaLogin()) {
 
                 include_once 'painel/paginas/includes/header.php';
@@ -279,15 +290,64 @@ if ($pg) {
             }
             break;
 
-        default:
-            include_once 'painel/paginas/dashboard.php';
+//siteeeeeeeeeeeeeeeeeeeeeeeeeeeeee//////////////////
+        case'inicio-site':
+
+            include_once 'site/paginas/includes/header.php';
+            include_once 'site/paginas/includes/navegacao.php';
+            include_once 'site/paginas/inicio-site.php';
+            include_once 'site/paginas/includes/footer.php';
+
             break;
+
+
+        //
+        case'contato-site':
+//Arquivos referente a página inicial do site
+
+            include_once 'site/paginas/includes/header.php';
+            include_once 'site/paginas/includes/navegacao.php';
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            //FAÇA O QUE ESTÁ AQUI DENTRO
+            //PEGANDO O DADOS VIA POST
+
+                $nome = $_POST['nome'];
+                $email = $_POST['email'];
+                $msg = $_POST['mensagem'];
+
+//Tratar os dados via post
+                $parametros = array(
+                    'nome' => $nome,
+                    'enail' => $email,
+                    'mensagem' => $mensagem
+                );
+
+//Inserção do banco de dados.
+                //inserção no banco de dados 
+                $resultDadps = new conecxao();
+                $resultDadps->intervencaoNoBanco('INSERT INTO '
+                        . 'contato (nome, email, mensagem) '
+                        . 'VALUES (:nome, :email, :mensagem )', $parametros);
+
+                include_once 'site/paginas/contato-site.php';
+            } else {
+                //faça o que está aqui
+                include_once 'site/paginas/contato-site.php';
+            }
+            include_once 'site/paginas/includes/footer.php';
+            break;
+
+        default:
     }
-} else {
-    //não existe
+
+
+} else{
     include_once 'site/paginas/includes/header.php';
-    include_once 'site/paginas/inicio.php';
-    include_once 'site/paginas/includes/footer.php';
+    include_once 'site/paginas/includes/navegacao.php';
+    include_once 'site/paginas/contato-site.php';
+    include 'site/paginas/includes/footer.php';
+   
 }
 
 
+    

@@ -1,9 +1,9 @@
 
-<!--container principal-->
+
 <div class="container p-5">
 
     <h1 class="text-center">Contato</h1>
-    <form action="">
+    <form action="?pg=contato-site" method="POST">
         <div class="row">
             <div class="col">                       
                 <div class="form-group">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                 <div class="form-group">                            
-                    <button class="btn-dark btn-block btn-lg">Enviar</button>
+                    <button type="submit" class="btn-dark btn-block btn-lg">Enviar</button>
                 </div>
             </div>
 
