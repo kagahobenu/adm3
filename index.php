@@ -49,7 +49,7 @@ if ($pg) {
             include_once 'painel/paginas/includes/menus.php';
 
             if ($_SERVER ['REQUEST_METHOD'] == 'POST') {
-              //FUNÇÃO PARA ATUALIZAÇÃO DO USUÁRIO
+                //FUNÇÃO PARA ATUALIZAÇÃO DO USUÁRIO
                 //echo 'Editando produto';
                 //Pegando as variáveis via POST
                 $id = $_POST['id'];
@@ -308,8 +308,8 @@ if ($pg) {
             include_once 'site/paginas/includes/header.php';
             include_once 'site/paginas/includes/navegacao.php';
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //FAÇA O QUE ESTÁ AQUI DENTRO
-            //PEGANDO O DADOS VIA POST
+                //FAÇA O QUE ESTÁ AQUI DENTRO
+                //PEGANDO O DADOS VIA POST
 
                 $nome = $_POST['nome'];
                 $email = $_POST['email'];
@@ -339,14 +339,11 @@ if ($pg) {
 
         default:
     }
-
-
-} else{
+} else {
     include_once 'site/paginas/includes/header.php';
     include_once 'site/paginas/includes/navegacao.php';
     include_once 'site/paginas/contato-site.php';
     include 'site/paginas/includes/footer.php';
-   
 }
 
 

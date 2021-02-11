@@ -4,8 +4,8 @@ function verificaLogin() {
     //No futuro as informações são 
     //trazidos do banco de dados
 
-    $usuario = 'Agreatbigworld';
-    $senha = 'idontwannalovesomebodyelse';
+    $usuario = 'julio';
+    $senha = 'cesar';
     
     //Verificar se as informações passados 
     //pelo usuário é igual a que estão no banco.

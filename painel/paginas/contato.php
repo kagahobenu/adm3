@@ -53,7 +53,7 @@
                                             <td><?php echo $dado['id']; ?> </td>
                                             <td><?php echo $dado['nome']; ?></td>
                                             <td><?php echo $dado['email']; ?></td>
-                                            <td><?php echo $dado['mensagem']; ?></td>
+                                            <td><?php echo $dado['msg']; ?></td>
                                             <td>
                                                 <a href="?pg=contato-visualizar&id=<?php echo $dado['id']; ?>" class="btn btn-outline-success"><span class="fa fa-eye"></span></a>
                                                 
